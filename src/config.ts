@@ -24,9 +24,15 @@ export function getFcliVersion(): string {
 
 /**
  * Normalize version to ensure it starts with 'v' prefix
+ * Only adds 'v' prefix if version contains only numbers and dots (e.g., '3.14.1')
+ * Leaves special tags unchanged (e.g., 'dev_v3.x', 'latest')
  */
 function normalizeVersion(version: string): string {
-  return version.startsWith('v') ? version : `v${version}`;
+  if (version.startsWith('v')) {
+    return version;
+  }
+  // Only add 'v' prefix if version contains only numbers and dots
+  return /^[\d.]+$/.test(version) ? `v${version}` : version;
 }
 
 /**

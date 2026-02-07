@@ -276,6 +276,30 @@ describe('getEffectiveConfig', () => {
     expect(config.fcliUrl).toBe('https://github.com/fortify/fcli/releases/download/v3.14.1/fcli-linux.tgz');
   });
 
+  it('should not add v prefix to special version tags like dev_v3.x', () => {
+    process.env.FCLI_BOOTSTRAP_VERSION = 'dev_v3.x';
+    
+    const config = getEffectiveConfig();
+    
+    expect(config.fcliUrl).toBe('https://github.com/fortify/fcli/releases/download/dev_v3.x/fcli-linux.tgz');
+  });
+
+  it('should not add v prefix to non-numeric version tags', () => {
+    process.env.FCLI_BOOTSTRAP_VERSION = 'latest';
+    
+    const config = getEffectiveConfig();
+    
+    expect(config.fcliUrl).toBe('https://github.com/fortify/fcli/releases/download/latest/fcli-linux.tgz');
+  });
+
+  it('should add v prefix to numeric version without dots', () => {
+    process.env.FCLI_BOOTSTRAP_VERSION = '3';
+    
+    const config = getEffectiveConfig();
+    
+    expect(config.fcliUrl).toBe('https://github.com/fortify/fcli/releases/download/v3/fcli-linux.tgz');
+  });
+
   it('should prioritize FCLI_BOOTSTRAP_URL over FCLI_BOOTSTRAP_VERSION', () => {
     process.env.FCLI_BOOTSTRAP_VERSION = 'v3.6.1';
     process.env.FCLI_BOOTSTRAP_URL = 'https://custom.url/fcli.tgz';

@@ -147,8 +147,10 @@ Configures how fcli is bootstrapped. Settings are saved to `~/.config/fortify/se
 - `--cache-dir=<path>` - Custom cache directory for bootstrapped fcli
   - Default: `~/.fortify/fcli/bootstrap` (Linux/Mac) or `%USERPROFILE%\.fortify\fcli\bootstrap` (Windows)
   - **Recommended for CI/CD**: Use job-specific temp directory (see Bootstrap Behavior section)
-- `--fcli-version=<version>` - Fcli version to bootstrap (supports with or without 'v' prefix)
-  - Examples: `v3`, `v3.14`, `v3.14.1`, `3`, `3.14`, `3.14.1`
+- `--fcli-version=<version>` - Fcli version to bootstrap
+  - For numeric versions, 'v' prefix is automatically added if missing: `3.14.1` → `v3.14.1`, `3` → `v3`
+  - Special tags are used as-is: `dev_v3.x`, `latest`, `main`
+  - Examples: `v3`, `v3.14`, `v3.14.1`, `3`, `3.14`, `3.14.1`, `dev_v3.x`
   - Default: `v3` (latest v3.x release)
   - Ignored if `--fcli-url` is specified
 - `--fcli-url=<url>` - Full URL to fcli archive (platform-specific)
