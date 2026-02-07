@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/fortify/fortify-setup-js/compare/v2.1.1...v2.1.2) (2026-02-07)
+
+
+### Bug Fixes
+
+* Allow `dev_*` fcli releases to be bootstrapped ([5efa063](https://github.com/fortify/fortify-setup-js/commit/5efa0632583401bab7db9c4dc925cea87f84b190))
+
 ## [2.1.1](https://github.com/fortify/fortify-setup-js/compare/v2.1.0...v2.1.1) (2026-01-27)
 
 
