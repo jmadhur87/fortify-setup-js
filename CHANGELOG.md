@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.3](https://github.com/fortify/fortify-setup-js/compare/v2.1.2...v2.1.3) (2026-02-23)
+
+
+### Bug Fixes
+
+* Add troubleshooting suggestion on missing VC++ redistributable ([fcc73bd](https://github.com/fortify/fortify-setup-js/commit/fcc73bd1cb1c24660214712fb3090c211b535766))
+
 ## [2.1.2](https://github.com/fortify/fortify-setup-js/compare/v2.1.1...v2.1.2) (2026-02-07)
 
 
