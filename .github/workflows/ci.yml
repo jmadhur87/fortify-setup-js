@@ -117,7 +117,7 @@ jobs:
     
     steps:
       - name: Create Release PR or Publish Release
-        uses: fortify/3rdparty-actions/actions/googleapis/release-please-action/v4@main
+        uses: fortify/3rdparty-actions/actions/googleapis/release-please-action/v5@main
         id: release
         with:
           release-type: node
