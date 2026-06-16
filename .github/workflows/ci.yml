@@ -121,6 +121,8 @@ jobs:
         id: release
         with:
           release-type: node
+          skip-github-release: true
+          target-branch: ${{ github.ref_name }}
       
       - name: Checkout code (if release created)
         if: ${{ steps.release.outputs.release_created }}
